@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.headerLogo{
+  color:#c0392b;
+  font-weight: 700;
+  line-height: 2;
+  margin-bottom: 50px;
+}
+.menubutton{
+  display: flex;
+  gap: 20px;
+}
+.menubutton{
+  align-items: center;
+  overflow-y: hidden;
+  padding: 0 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+.menubutton button::before{
+  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: none;
+}
+.menubutton button{
+  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #c0392b;
+  border: none;
+}

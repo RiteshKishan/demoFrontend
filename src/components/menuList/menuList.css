@@ -1,0 +1,46 @@
+.menuList {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 20px;
+  /* border: 1px solid grey; */
+}
+.menuListImage img {
+  width: 33%;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  transition: 0.3s;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.menuListImage:hover img {
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+}
+.menuList-name-price {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px dashed #c0392b;
+}
+.menuList-Name {
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 2;
+  text-transform: capitalize;
+}
+.menuList-Price {
+  font-size: 25px;
+  font-weight: 800;
+  font-style: italic;
+  color: #c0392b;
+}
+.menuList-Desc {
+  font-weight: 200;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.menuList-Body{
+  margin-left: 30%;
+}
