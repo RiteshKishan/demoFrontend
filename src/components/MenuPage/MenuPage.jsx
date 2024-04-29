@@ -9,13 +9,17 @@ const MenuPage = () => {
     const [menuData, setMenuData] = useState([]);
     const [subMenu, setSubMenu] = useState([]);
     const BASE_URL = "https://demobackend-s85p.onrender.com/";
+    // const BASE_URL = "http://localhost:3000/";
   
     useEffect(() => {
       const getFoodData = async (e) => {
         try {
           await axios.get(BASE_URL + "getMenu").then((res) => {
             setMenuData(res.data);
-            setSubMenu(res.data[0].subMenu);
+            setSubMenu(res.data[0].subMenu)
+            // (res.data).map((i)=>{
+            //   setSubMenu(...subMenu, i.subMenu)
+            // })
           });
         } catch (err) {
           console.log(err);

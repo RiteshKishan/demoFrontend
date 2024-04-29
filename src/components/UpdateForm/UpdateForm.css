@@ -1,32 +1,3 @@
-.addNewButton {
-  background-color: #c0392b;
-  padding: 10px 20px;
-  border-radius: 7px;
-  color: #fff;
-  font-size: 17px;
-  border: none;
-  margin-top: 30px;
-}
-.addNewButton:hover {
-  background-color: #f2613f;
-}
-.menuInputForm {
-  display: flex;
-  gap: 20px;
-  justify-content: space-evenly;
-  margin-top: 50px;
-}
-.menuSubmit {
-  background-color: #c0392b;
-  padding: 10px 20px;
-  border-radius: 7px;
-  color: #fff;
-  font-size: 17px;
-  border: none;
-}
-.menuSubmit:hover {
-  background-color: #f2613f;
-}
 
 .menuItemList{
     margin-top: 50px;
@@ -96,16 +67,4 @@
     transform: skewX(45deg);
     transform-origin: 100% 0;
   }
-}
-
-.updateMenuLayover{
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  z-index: 10;
-  background-color: #0000005e;
-  top: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
 }

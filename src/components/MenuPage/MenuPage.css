@@ -21,8 +21,6 @@
   .menubutton{
     display: flex;
     gap: 20px;
-  }
-  .menubutton{
     align-items: center;
     overflow-y: hidden;
     padding: 0 30px;
@@ -41,4 +39,11 @@
     padding: 10px 20px;
     background-color: #c0392b;
     border: none;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .menubutton button:hover{
+    background-color: #fff;
+    color: #c0392b;
   }

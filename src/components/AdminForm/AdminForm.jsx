@@ -2,18 +2,26 @@ import React, { useState, useEffect } from "react";
 import "../AdminForm/AdminForm.css";
 import DeleteIcon from "../../Assests/delete.svg";
 import axios from "axios";
+import UpdateForm from "../UpdateForm/UpdateForm";
+import ChangeMenu from "../ChangeMenu/ChangeMenu";
+
+
 
 const AdminForm = () => {
   const [menuItemName, setMenuItemName] = useState("");
+  const [menuShareItemName, setMenuShareItemName] = useState("");
   const [displayAddNewForm, setDisplayAddNewForm] = useState(false);
   const BASE_URL = "https://demobackend-s85p.onrender.com/";
-  const [menuData, setMenuData] = useState([]);
+  // const BASE_URL = "http://localhost:3000/";
+  const [menuItem, setMenuItem] = useState([]);
+  const [showChangeMenu, setShowChangeMenu] = useState(false);
+  const [subMenu, setSubMenu] = useState([]);
 
   useEffect(() => {
-    const getFoodData = async (e) => {
+    const getFoodData = async () => {
       try {
         await axios.get(BASE_URL + "getMenu").then((res) => {
-          setMenuData(res.data);
+          setMenuItem(res.data);
         });
       } catch (err) {
         console.log(err);
@@ -24,8 +32,15 @@ const AdminForm = () => {
   const handleMenuItemName = (e) => {
     setMenuItemName(e.target.value);
   };
-  const handleMenuSubmit = (e) => {
+  const handleMenuSubmit = async (e) => {
     e.preventDefault();
+    const inputData = {itemName: menuItemName}
+    try {
+      await axios.post(BASE_URL + "createMenuItem", inputData).then((res) => {
+      });
+    } catch (err) {
+      console.log(err);
+    }
     setMenuItemName("");
     setDisplayAddNewForm(false);
   };
@@ -33,6 +48,36 @@ const AdminForm = () => {
   const handleAddNew = () => {
     setDisplayAddNewForm(true);
   };
+
+  const handleMenuClick = async (e) => {
+    setShowChangeMenu(true)
+    setMenuShareItemName(e.target.innerText)
+    try {
+      await axios
+        .get(BASE_URL + "getSubMenu", {
+          params: { itemName: e.target.innerText },
+        })
+        .then((res) => {
+          setSubMenu([]);
+          setSubMenu(res.data);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleDeleteClick = async (e) => { //This is code to Delete the menuitem
+    try{
+      await axios.delete(BASE_URL + "deleteMenu",{
+        params: { itemName: e.target.name },
+      })
+    }catch(err){
+      console.log(err);
+    }
+  };
+  const handleUpdateLayover = (e) =>{
+    setShowChangeMenu(false)
+  }
 
   return (
     <div>
@@ -59,17 +104,35 @@ const AdminForm = () => {
         ""
       )}
 
+      <h3>Select the menu you want to change</h3>
+
       <div className="menuItemList">
         <div className="menuListContainer">
-          {menuData.map((data)=>{
-          <div className="menuListBtnOption">
-            <a href="#?" class="menuListBtn">
-              {data.itemName}
-            </a>
-            <img src={DeleteIcon} alt="" />
-          </div>
-          })}
+          {menuItem.map((data, index) => (
+            <div className="menuListBtnOption" key={data.id}>
+              <button
+                className="menuListBtn"
+                key={data.itemName}
+                onClick={handleMenuClick}
+              >
+                {data.itemName}
+              </button>
+              <img
+                src={DeleteIcon}
+                alt=""
+                onClick={handleDeleteClick}
+                name={data.itemName}
+              />
+            </div>
+          ))}
         </div>
+
+        { showChangeMenu? (<>
+        <div className="updateMenuLayover" onClick={handleUpdateLayover}>
+        </div>
+            <ChangeMenu data={subMenu} ItemName={menuShareItemName}/>
+        </>
+        ):''}
       </div>
     </div>
   );

@@ -2,7 +2,13 @@
   display: flex;
   justify-content: space-around;
   padding: 10px 20px;
-  /* border: 1px solid grey; */
+  border: 0.5px solid #c0392b;
+  border-radius: 12px;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+.menuList:hover{
+  border: 2px solid #f2613f;
 }
 .menuListImage img {
   width: 33%;
