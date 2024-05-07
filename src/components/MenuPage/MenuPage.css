@@ -2,6 +2,7 @@
 .menuHeader{
     display: flex;
     justify-content: center;
+    background-color: bisque;
 }
 .AdminLogin{
     height: 20px;
@@ -24,9 +25,11 @@
     align-items: center;
     overflow-y: hidden;
     padding: 0 30px;
+    padding-bottom: 30px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-evenly;
+    background-color: bisque;
   }
   .menubutton button::before{
     border-radius: 4px;

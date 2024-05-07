@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import "../MenuPage/MenuPage.css";
 import axios from "axios";
-import MenuList from "../menuList/menuList";
+import React, { useEffect, useState } from "react";
 import AdminLogo from '../../Assests/admin-icon.svg';
+import "../MenuPage/MenuPage.css";
+import MenuList from "../menuList/menuList";
 
 const MenuPage = () => {
 
@@ -50,7 +50,7 @@ const MenuPage = () => {
   return (
     <div>
       <header className="menuHeader">
-        <div className="headerLogo">Our Menu</div>
+        <div className="headerLogo">Our Digital Menu</div>
         <img src={AdminLogo} alt="" className="AdminLogin" onClick={handleAdminLogin} />
       </header>
       <div className="menubutton">
