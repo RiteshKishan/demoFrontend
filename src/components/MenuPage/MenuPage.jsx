@@ -3,49 +3,38 @@ import React, { useEffect, useState } from "react";
 import AdminLogo from '../../Assests/admin-icon.svg';
 import "../MenuPage/MenuPage.css";
 import MenuList from "../menuList/menuList";
-
 const MenuPage = () => {
+  const [menuData, setMenuData] = useState([]);
+  const [subMenu, setSubMenu] = useState([]);
+  const BASE_URL = "https://demobackend-s85p.onrender.com/";
 
-    const [menuData, setMenuData] = useState([]);
-    const [subMenu, setSubMenu] = useState([]);
-    const BASE_URL = "https://demobackend-s85p.onrender.com/";
-    // const BASE_URL = "http://localhost:3000/";
-  
-    useEffect(() => {
-      const getFoodData = async (e) => {
-        try {
-          await axios.get(BASE_URL + "getMenu").then((res) => {
-            setMenuData(res.data);
-            setSubMenu(res.data[0].subMenu)
-            // (res.data).map((i)=>{
-            //   setSubMenu(...subMenu, i.subMenu)
-            // })
-          });
-        } catch (err) {
-          console.log(err);
-        }
-      };
-      getFoodData();
-    }, []);
-  
-    const getSubMenuData = async (e) => {
+  useEffect(() => {
+    const getFoodData = async () => {
       try {
-        await axios
-          .get(BASE_URL + "getSubMenu", {
-            params: { itemName: e.target.innerText },
-          })
-          .then((res) => {
-            setSubMenu([]);
-            setSubMenu(res.data);
-          });
+        const res = await axios.get(BASE_URL + "getMenu");
+        setMenuData(res.data);
+        setSubMenu(res.data[0].subMenu);
       } catch (err) {
-        console.log(err);
+        console.log("Error fetching menu data:", err);
       }
     };
-    const handleAdminLogin = (e) => {
-        window.location.href = '/AdminLogin';
-    
+    getFoodData();
+  }, []);
+
+  const getSubMenuData = async (itemName) => {
+    try {
+      const res = await axios.get(BASE_URL + "getSubMenu", {
+        params: { itemName },
+      });
+      setSubMenu(res.data);
+    } catch (err) {
+      console.log("Error fetching submenu data:", err);
     }
+  };
+
+  const handleAdminLogin = () => {
+    window.location.href = '/AdminLogin';
+  }
 
   return (
     <div>
@@ -55,7 +44,7 @@ const MenuPage = () => {
       </header>
       <div className="menubutton">
         {menuData.map((data) => (
-          <button key={data.itemName} onClick={getSubMenuData}>
+          <button key={data.itemName} onClick={() => getSubMenuData(data.itemName)}>
             {data.itemName}
           </button>
         ))}

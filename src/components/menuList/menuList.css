@@ -1,9 +1,13 @@
+.container{
+  background-color: #c5c2c2;
+}
 .menuList {
   display: flex;
   justify-content: space-around;
   padding: 20px;
   margin-left: 10px;
   margin-right: 10px;
+
   border: 2px solid #c0392b;
   border-radius: 12px;
   margin-top: 20px;
@@ -44,9 +48,11 @@
 
 .menuList-Name {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: bold; /* Set font weight to bold */
   color: #333;
+ 
 }
+
 
 .menuList-Price {
   font-size: 18px;

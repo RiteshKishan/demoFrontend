@@ -1,111 +1,106 @@
+/* Button Styles */
 .addNewButton {
-  background-color: #c0392b;
-  padding: 10px 20px;
-  border-radius: 7px;
+  background-color: #f2613f; /* Vibrant orange-red */
+  padding: 12px 24px;
+  border-radius: 8px;
   color: #fff;
-  font-size: 17px;
+  font-size: 18px;
   border: none;
-  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
+
 .addNewButton:hover {
-  background-color: #f2613f;
+  background-color: #e74c3c; /* Slightly darker shade on hover */
 }
+
+/* Form Styles */
 .menuInputForm {
   display: flex;
   gap: 20px;
-  justify-content: space-evenly;
+  justify-content: center; /* Align form items in the center */
   margin-top: 50px;
 }
+
 .menuSubmit {
-  background-color: #c0392b;
-  padding: 10px 20px;
-  border-radius: 7px;
-  color: #fff;
-  font-size: 17px;
-  border: none;
-}
-.menuSubmit:hover {
   background-color: #f2613f;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.menuItemList{
-    margin-top: 50px;
+.menuSubmit:hover {
+  background-color: #e74c3c;
 }
-.menuListContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
+
+/* Menu Item List Styles */
+.menuItemList {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.menuListBtnOption{
-    display: flex;
-    gap: 30px;
-    align-items: center;
+
+.menuListContainer {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background-color: #fff; /* White background for each menu item */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  transition: background-color 0.3s ease-in-out;
 }
-.menuListBtnOption img{
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
+
+.menuListContainer:hover {
+  background-color: #f5f5f5; /* Light gray background on hover */
 }
 
 .menuListBtn {
   border: none;
-    cursor: pointer;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  padding: 1.222em 2em 1.111em 2em;
+  cursor: pointer;
   font-weight: 600;
-  letter-spacing: 1px;
-  color: #fff;
-  text-decoration: none;
-  background: #2ab22e;
-  transform: translate3d(0, 0, 0);
-  transition: 0.1s background, 0.1s transform;
-
-  &:hover {
-    background: darken(#2ab22e, 5);
-    transform: translate3d(0, 8px, 0);
-
-    &:after,
-    &:before {
-      height: 0;
-      background: darken(#2ab22e, 10);
-    }
-  }
-
-  &:after,
-  &:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    width: 50%;
-    height: 8px;
-    background: darken(#2ab22e, 5);
-    transition: 0.1s height, 0.1s background;
-  }
-
-  &:after {
-    right: 0;
-    transform: skewX(-45deg);
-    transform-origin: 0 0;
-  }
-
-  &:before {
-    left: 0;
-    transform: skewX(45deg);
-    transform-origin: 100% 0;
-  }
+  font-size: 18px;
+  color: #333; /* Dark text color */
+  background: #2ab22e; /* Green button background */
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.updateMenuLayover{
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  z-index: 10;
-  background-color: #0000005e;
+.menuListBtn:hover {
+  background-color: #28a745; /* Slightly darker shade on hover */
+}
+
+.menuListBtn:focus {
+  outline: none; /* Remove focus outline */
+}
+
+.menuListBtnOption img {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menuListBtnOption img:hover {
+  transform: scale(1.2); /* Scale up the delete icon on hover */
+}
+
+/* Layover Styles */
+.updateMenuLayover {
+  position: fixed; /* Fixed position to cover the entire viewport */
   top: 0;
-  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 10;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 }

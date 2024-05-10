@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "../AdminForm/AdminForm.css";
-import DeleteIcon from "../../Assests/delete.svg";
 import axios from "axios";
-import UpdateForm from "../UpdateForm/UpdateForm";
+import React, { useEffect, useState } from "react";
+import DeleteIcon from "../../Assests/delete.svg";
+import "../AdminForm/AdminForm.css";
 import ChangeMenu from "../ChangeMenu/ChangeMenu";
 
 

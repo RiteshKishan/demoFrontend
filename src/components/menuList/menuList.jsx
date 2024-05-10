@@ -4,7 +4,7 @@ import "../menuList/menuList.css";
 const MenuList = ({data}) => {
   
   return (
-    <div>
+    <div className="container">
       {data.map((menu) => (
         <div className="menuList">
           <div className="menuListImage">
