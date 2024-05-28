@@ -4,7 +4,7 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
 const UpdateForm = ({ data, itemName }) => {
-  const BASE_URL = "https://demobackend-s85p.onrender.com/";
+  const BASE_URL = "https://demobackend-e6mi.onrender.com/";
   // const BASE_URL = "http://localhost:3000/";
   const [updateForm, setUpdateForm] = useState(data);
   const [showUpdateForm, setShowUpdateForm] = useState(true);
